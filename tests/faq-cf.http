@@ -1,0 +1,12 @@
+
+
+curl -X POST "TU URL DE TU AGENTE FAQ DESPLEGADO" \
+  -H "Content-Type: application/json" \
+  -d "{\"user_request\": \"Hi\"}"
+
+
+curl -X POST "TU URL DE TU AGENTE FAQ DESPLEGADO" \
+  -H "Content-Type: application/json" \
+  -d "{\"user_request\": \"For me, I think SAP is a good company, in that case, when was founded?\"}"
+
+

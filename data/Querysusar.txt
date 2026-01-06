@@ -1,0 +1,23 @@
+#1 Creacion de Tablas (Ejecutar en el SQL, dentro de DataBase Explorer o Cloud Central)
+-- Preguntas
+CREATE COLUMN TABLE DBADMIN.CHATBOT_FAQ_QUESTIONS (
+  QID              INTEGER PRIMARY KEY,
+  AID              INTEGER,
+  QUESTION         NVARCHAR(4000),
+  QUESTION_VECTOR  REAL_VECTOR(768)  -- ajusta si tu modelo usa otra dimensión
+);
+
+-- Respuestas
+CREATE COLUMN TABLE DBADMIN.CHATBOT_FAQ_ANSWERS (
+  AID     INTEGER PRIMARY KEY,
+  ANSWER  NCLOB
+);
+
+#2 Ejecutar el codigo python de prepare_hana.python
+
+#3 Usar el siguiente query para la creacion de los vectores de las preguntas.(Ejecutar en el SQL, dentro de DataBase Explorer o Cloud Central)
+
+UPDATE DBADMIN.CHATBOT_FAQ_QUESTIONS
+   SET QUESTION_VECTOR = VECTOR_EMBEDDING(QUESTION, 'QUERY', 'SAP_NEB.20240715')
+ WHERE QUESTION_VECTOR IS NULL
+   AND QUESTION IS NOT NULL;
