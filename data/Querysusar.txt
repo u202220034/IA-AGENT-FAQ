@@ -4,7 +4,7 @@ CREATE COLUMN TABLE DBADMIN.CHATBOT_FAQ_QUESTIONS (
   QID              INTEGER PRIMARY KEY,
   AID              INTEGER,
   QUESTION         NVARCHAR(4000),
-  QUESTION_VECTOR  REAL_VECTOR(768)  -- ajusta si tu modelo usa otra dimensión
+  QUESTION_VECTOR  REAL VECTOR(768)  -- ajusta si tu modelo usa otra dimensión
 );
 
 -- Respuestas
