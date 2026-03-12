@@ -1,17 +1,26 @@
 #1 Creacion de Tablas (Ejecutar en el SQL, dentro de DataBase Explorer o Cloud Central)
 -- Preguntas
 CREATE COLUMN TABLE DBADMIN.CHATBOT_FAQ_QUESTIONS (
-  QID              INTEGER PRIMARY KEY,
-  AID              INTEGER,
+  QID              INTEGER,           
+  AID              INTEGER PRIMARY KEY,
   QUESTION         NVARCHAR(4000),
-  QUESTION_VECTOR  REAL VECTOR(768)  -- ajusta si tu modelo usa otra dimensión
+  STATUS           NVARCHAR(50),      
+  CREATED_AT       TIMESTAMP,         
+  CREATED_BY       NVARCHAR(100),     
+  QUESTION_VECTOR  REAL VECTOR(768)   
 );
 
 -- Respuestas
 CREATE COLUMN TABLE DBADMIN.CHATBOT_FAQ_ANSWERS (
-  AID     INTEGER PRIMARY KEY,
-  ANSWER  NCLOB
+  AID      INTEGER PRIMARY KEY,
+  ANSWER   NCLOB
 );
+
+-- Secuencias
+CREATE SEQUENCE DBADMIN.CHATBOT_FAQ_AID_SEQ
+  START WITH 1024
+  INCREMENT BY 1;
+
 
 #2 Ejecutar el codigo python de prepare_hana.python
 
